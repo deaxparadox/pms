@@ -1,0 +1,12 @@
+#navbar {
+    background-color: darkcyan;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+}
+#navbar > .navitem {
+    display: inline-block;
+    padding: 10px 20px;
+    color: inherit;
+    text-decoration: none;
+}
