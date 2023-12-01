@@ -1,0 +1,27 @@
+#navbar {
+    background-color: inherit;
+    color: inherit;
+
+    display: flex;
+    justify-content: start;
+}
+#navbar > .navitem {
+    display: inline-block;
+    background-color: inherit;
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 12px;
+}
+#site {
+    font-size: larger;
+}
+#navbar > .links {
+    padding-top: 12px;
+    transition: .2s;
+}
+#navbar > .links:hover {
+    background-color: rgb(138, 37, 37);
+}

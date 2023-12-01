@@ -1,0 +1,32 @@
+<div *ngIf="headings" id="heading-box">
+  <ul id="heading-list">
+    <li *ngFor="let heading of headings">
+      <div class="heading">
+          
+          <h2>
+            <a href="#">
+              {{ heading.heading }}
+            </a>
+          </h2>
+          
+          <ul class="datetime-created-updated">
+            <li>{{ heading.created | date }}</li>
+            <li>{{ heading.updated | date }}</li>
+          </ul>
+
+          <ul class="datetime-start-end">
+            <li [innerText]="heading.start ? heading.start : 'No Date'"></li>
+          <li [innerText]="heading.start ? heading.start : 'No Date'"></li>
+          </ul>
+          
+          <div class="buttons">
+            <button class="button" type="button" id="add-task">Add task</button>
+            <button class="button" type="button" id="edit">Edit</button>
+            <button class="button" type="button" id="delete" disabled>delete</button>
+          </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
