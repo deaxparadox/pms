@@ -11,7 +11,7 @@
     transition: .2s;
 }
 .heading:hover {
-    background-color: rgb(233, 117, 117);
+    background-color: rgb(241, 185, 185);
 }
 
 .heading > h2 {

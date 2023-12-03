@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Heading } from './heading';
+import { Heading, HeadingWithTasks } from './heading';
 
 @Injectable({
   providedIn: 'root'
@@ -12,5 +12,8 @@ export class HeadingService {
 
   getHeadings(): Observable<Heading[]> {
     return this.httpClient.get<Heading[]>("http://localhost:8000/api/v1/")
+  }
+  getHeading(id: number): Observable<HeadingWithTasks> {
+    return this.httpClient.get<HeadingWithTasks>(`http://localhost:8000/api/v1/heading/${id}/`)
   }
 }

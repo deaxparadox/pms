@@ -1,11 +1,20 @@
 <div id="navbar">
-    <a href="/" id="site" class="navitem">
-            PMS
-    </a>
-    <a href="/" class="navitem links">
-        Headings
-    </a>
-    <a href="/" class="navitem links">
-            Tasks
-    </a>
+    <div id="main-link">
+        <a href="/" id="site" class="navitem" routerLinkActive="active" ariaCurrentWhenActive="page">
+            <h1>
+                PMS
+            </h1>
+        </a>
+
+    </div>
+    <div id="insite-link">
+        <div>
+            <a href="/heading" class="navitem links" routerLinkActive="active" ariaCurrentWhenActive="page">
+                Headings
+            </a>
+            <a href="/task" class="navitem links" routerLinkActive="active" ariaCurrentWhenActive="page">
+                Tasks
+            </a>
+        </div>
+    </div>
 </div>

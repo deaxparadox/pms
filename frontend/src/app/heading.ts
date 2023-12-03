@@ -1,5 +1,4 @@
 
-import { Task } from "./config.service"
 
 // {
 //     "id": 1,
@@ -38,6 +37,14 @@ export interface Heading {
 //     ]
 // },
 
+interface Task {
+    id: number;
+    task: string;
+    start: string | null;
+    end: string | null;
+    created: string;
+    updated: string;
+}
 export interface HeadingWithTasks {
     id: number,
     heading: string,

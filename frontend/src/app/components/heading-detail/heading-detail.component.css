@@ -1,0 +1,11 @@
+#heading-detail {
+    background-color: rgba(165, 42, 42, 0.034);
+}
+
+/* #heading-detail > #heading, */
+#heading-detail > #heading > h1 {
+    text-align: center;
+    background-color: rgb(255, 208, 208);
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
