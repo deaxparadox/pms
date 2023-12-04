@@ -17,10 +17,24 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from . import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("app.urls", namespace="app")),
-    path('api/v1/', include("api.urls", namespace="api")),
+    path(
+        'api/',
+        include(
+            [
+                path('v1/', include("api.urls", namespace="api")),
+                # include('v2/', include("api.urls", namespace="api"))
+                path(
+                    "user/",
+                    include("user_auth.urls", namespace="user_auth"),
+                
+                )
+            ]
+        )
+    ),
     path("chat/", include("chat.urls")),
-    re_path(r'^', views.error_404, name="error_404"),
+    re_path(r'^', views.api_error_view, name="error_404"),
 ]

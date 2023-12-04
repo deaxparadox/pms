@@ -12,10 +12,11 @@ class GetSingleHeading(APIView):
     # filterset_fields = ['category', 'in_stock']
 
     def get(self, request, id):
-        # id = self.kwargs['id']                                        # for query parameter
+        # id = self.kwargs['id']                                # for query parameter
+        print(request.data, request.META.get("HTTP_AUTHORIZATION"))
         heading = Heading.objects.get(id=id)
         serializers = heading_HeadingSerializer_single_task(heading)
-        print(serializers)
+        # print(serializers)
         return Response(
             serializers.data,
             status=status.HTTP_200_OK

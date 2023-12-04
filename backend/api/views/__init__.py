@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework import generics
+from rest_framework.authtoken.models import Token
 
 from django.shortcuts import render
 
@@ -28,15 +29,24 @@ def home_view(request):
     """
     Send a response with all heading
     """
-    match request.method:
-        case "GET":
-            headings = Heading.objects.all()
-            serializers = HeadingModelSerializer(headings, many=True)
-            return Response(
-                serializers.data,
-                status=status.HTTP_200_OK
-            )
-
+    AUTORIZATION: str | None = request.META.get("HTTP_AUTHORIZATION")
+    if not AUTORIZATION:
+        ...
+    
+    TOKEN = AUTORIZATION.split(" ")[-1]
+    user = Token.objects.get(key=TOKEN)
+      
+    # headings = Heading.objects.all()
+    headings = user.user.heading.all()
+    
+    serializers = HeadingModelSerializer(headings, many=True)
+    return Response(
+        serializers.data,
+        status=status.HTTP_200_OK
+    )
+    
+    
+    
 @api_view(["GET"])
 def tasks_view(request):
     """
