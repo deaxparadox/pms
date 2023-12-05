@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HeadingWithTasks } from 'src/app/heading';
-import { HeadingService } from 'src/app/heading.service';
-import { TaskService } from 'src/app/task.service';
+import { HeaderService } from 'src/app/services/header/header.service';
+import { HeadingService } from 'src/app/services/heading/heading.service';
+import { TaskService } from 'src/app/services/task/task.service';
+
 
 
 

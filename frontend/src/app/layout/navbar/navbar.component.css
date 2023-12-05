@@ -82,3 +82,7 @@
 #navbar>#insite-link>div>a:active {
     background-color: rgb(54, 52, 52);
 }
+
+#logout_button {
+    cursor: pointer;
+}

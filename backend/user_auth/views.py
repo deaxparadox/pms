@@ -19,6 +19,8 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from rest_framework import status
 
+from api.helpers.auth import get_token
+
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
@@ -40,23 +42,23 @@ def authenticate_user(request, formt=None):
     return Response(content, status=status.HTTP_200_OK)
 
 
-############## RETREIVE TOKEN FOR AUTHORIZED USER ####################
-# 
-def get_token(user: User | None):
-    """Return the Token
+# ############## RETREIVE TOKEN FOR AUTHORIZED USER ####################
+# # 
+# def get_token(user: User | None):
+#     """Return the Token
     
-    If token does not exist return 404
+#     If token does not exist return 404
 
-    Returns:
-        Reponse: dictionary of user auth token
-    """
-    try:
-        token: Token = Token.objects.get(user=user)
-    except Token.DoesNotExist as e:
-        return Response({"message": "token not found"}, status=status.HTTP_404_NOT_FOUND)
-    except Token.MultipleObjectsReturned as e:
-        return Response({"message": "multiple object found"}, status=status.HTTP_404_NOT_FOUND)
-    return Response({"token": token.key}, status=status.HTTP_200_OK)
+#     Returns:
+#         Reponse: dictionary of user auth token
+#     """
+#     try:
+#         token: Token = Token.objects.get(user=user)
+#     except Token.DoesNotExist as e:
+#         return Response({"message": "token not found"}, status=status.HTTP_404_NOT_FOUND)
+#     except Token.MultipleObjectsReturned as e:
+#         return Response({"message": "multiple object found"}, status=status.HTTP_404_NOT_FOUND)
+#     return Response({"token": token.key}, status=status.HTTP_200_OK)
 
 
 

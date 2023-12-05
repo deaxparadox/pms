@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeadingComponent } from './components/heading/heading.component';
 import { HeadingDetailComponent } from './components/heading-detail/heading-detail.component';
+import { LoginComponent } from './user/login/login.component';
 
 const routes: Routes = [
   {path: "dashboard", component: DashboardComponent},
   {path: "heading", component: HeadingComponent},
   {path: "heading/:id", component: HeadingDetailComponent},
+  {path: "login", component: LoginComponent},
   { path: '', redirectTo: "/dashboard", pathMatch: "full"}
   // { path: '', redirectTo: "/dashboard", pathMatch: "full"}
 ];

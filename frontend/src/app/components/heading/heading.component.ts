@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Task } from '../../config.service';
-import { HeadingService } from '../../heading.service';
+import { HeadingService } from '../../services/heading/heading.service';
 import { Heading } from '../../heading';
 
 @Component({

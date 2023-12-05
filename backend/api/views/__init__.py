@@ -23,21 +23,20 @@ from ..serializers.single_task import (
     task_TaskSerializers_single_task
 )
 
+from ..helpers.auth import get_token_from_header
 
 @api_view(["GET"])
 def home_view(request):
     """
     Send a response with all heading
     """
-    AUTORIZATION: str | None = request.META.get("HTTP_AUTHORIZATION")
-    if not AUTORIZATION:
-        ...
+    user_token: str | None = get_token_from_header(request)
     
-    TOKEN = AUTORIZATION.split(" ")[-1]
-    user = Token.objects.get(key=TOKEN)
+    if not user_token:
+        return Response({}, status=status.HTTP_401_UNAUTHORIZED)
+    
       
-    # headings = Heading.objects.all()
-    headings = user.user.heading.all()
+    headings = user_token.user.heading.all()
     
     serializers = HeadingModelSerializer(headings, many=True)
     return Response(
