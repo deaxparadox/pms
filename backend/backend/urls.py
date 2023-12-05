@@ -28,7 +28,7 @@ urlpatterns = [
                 path('v1/', include("api.urls", namespace="api")),
                 # include('v2/', include("api.urls", namespace="api"))
                 path(
-                    "user/",
+                    "",
                     include("user_auth.urls", namespace="user_auth"),
                 
                 )

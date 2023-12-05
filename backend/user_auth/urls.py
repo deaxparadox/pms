@@ -20,7 +20,7 @@ urlpatterns = [
         name="api_get_authenticated_user"
     ),
     path(
-        "create/",
+        "signup/",
         create_user,
         name="api_create_user"
     )
