@@ -42,7 +42,7 @@ def get_token_from_header(request) -> str | None:
     Returns:
         str: user_token
     """
-    print(request.META)
+    # print(request.META)
     AUTORIZATION: str | None = request.META.get("HTTP_AUTHORIZATION")
     if not AUTORIZATION:
         return 
