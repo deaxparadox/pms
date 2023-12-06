@@ -14,13 +14,22 @@ export class NavbarComponent implements OnInit{
     private activateRoute: ActivatedRoute
   ) {}
 
-  hideLogin: boolean = true;
-  ngOnInit(): void {
+  check_login = setInterval(() => {
     if (this.loginService.user_token) {
-      console.log(this.loginService.user_token);
-      this.hideLogin = false;
+      // console.log(this.loginService.user_token);
+      this.hideLogin = true;
+    } else {
+      // console.log("No user login");
     }
+    // console.log(`hideLogin: ${this.hideLogin}`)
+  }, 1000)  
+
+
+  ngOnInit(): void {
+
   }
+
+  hideLogin: boolean = false;
 
   logout() {
     if (!this.loginService.user_token) {
@@ -30,9 +39,10 @@ export class NavbarComponent implements OnInit{
     
       if (this.loginService) {
         console.log(this.loginService.user_token);
+        this.hideLogin = false;
         this.router.navigate(['login/'])
       } 
     }
-    
+
   }
 }

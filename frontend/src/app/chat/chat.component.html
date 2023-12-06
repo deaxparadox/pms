@@ -1,0 +1,31 @@
+<div id="chat">
+    <div id="header">
+        <div id="text">
+            <h3>Chat</h3>
+        </div>
+        <div id="symbol">
+            <div id="icon">
+                <button 
+                    [class.chat-close-arrow-up]="!isOpen" 
+                    [class.chat-close-arrow-down]="!isOpen" 
+                    (click)="toggle()" 
+                    type="button" 
+                    id="rotate"
+                >
+                    <h2>&downarrow;</h2>
+                </button>                
+            </div>
+        </div>
+    </div>
+    <div [@chatBodyOpenClose]="isOpen ? 'open' : 'close'"  id="body">
+        <div id="content">
+            <div id="chats">
+                <h1>Welcome to Chat bot.</h1>
+            </div>
+        </div>
+        <div id="input"  >
+            <input #message type="text" name="text" placeholder="Message...">
+            <button (click)="sendMessage(message.value)" type="button">&RightArrow;</button>
+        </div>
+    </div>
+</div>

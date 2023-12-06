@@ -14,7 +14,20 @@ export class LoginComponent {
     private router: Router
   ) {}
   
+  
+  invalid_username_password_status: boolean = false;
+  invalid_username_password_message = "Invalid username or password!"
+
   login(username: string, password: string) {
+    if ((!username) || (!password)) {
+      console.log("Invalid username or password!:(");
+      this.invalid_username_password_status = true;
+      return
+
+    }
+
+    this.invalid_username_password_status = false;
+
     this.loginService.login<UserToken>(username, password).subscribe(
       (t) => {
         this.loginService.user_token = t.token;
@@ -23,9 +36,16 @@ export class LoginComponent {
     )
 
     if (this.loginService) {
-      this.router.navigate(['dashboard/'])
+      this.router.navigate(['dashboard/']);
     }
   }
 
+  login_on_enter(event: KeyboardEvent, username: string, password: string) {
+    event.preventDefault();
+    console.log(event);
+    // if (event.key === 'enter') {
+    //   this.login(username, password);
+    // }
+  }
 
 }

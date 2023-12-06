@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { BrowserAnimationsModule} from "@angular/platform-browser/animations"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { HeadingDetailComponent } from './components/heading-detail/heading-deta
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
 import { LoginComponent } from './user/login/login.component';
 import { SignupComponent } from './user/signup/signup.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +32,14 @@ import { SignupComponent } from './user/signup/signup.component';
     TaskDetailComponent,
     LoginComponent,
     SignupComponent,
+    ChatComponent,
     // HeroesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [
   ],

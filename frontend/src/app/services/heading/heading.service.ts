@@ -18,7 +18,7 @@ import { UserToken } from '../login/token';
   providedIn: 'root'
 })
 export class HeadingService implements OnInit {
-  
+
   constructor(
     private httpClient: HttpClient,
     private headerService: HeaderService,
@@ -31,12 +31,8 @@ export class HeadingService implements OnInit {
   user_token?: UserToken;
 
   getHeadings(): Observable<Heading[]> {
-    // this.httpOptions.options.headers = this.user();
-    // this.loginService.login<UserToken>().subscribe(async (user) => {
-    //   this.user_token = user;
-    //   console.log(this.user_token)
-    // })
-    
+
+
     this.headerService.options.headers = this.user("9fe56e05951440d9e4accc2f84d3b368aedbbdd0")
     return this.httpClient.get<Heading[]>(
       "http://localhost:8000/api/v1/", this.headerService.options

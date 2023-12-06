@@ -20,4 +20,7 @@ export class LoginService {
       password: password,
     });
   }
+
+  invalid_username_password_status: boolean = true;
+  invalid_username_password_message = "Invalid username or password!"
 }

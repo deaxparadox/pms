@@ -15,10 +15,12 @@
             <a href="/task" class="navitem links" routerLinkActive="active" ariaCurrentWhenActive="page">
                 Tasks
             </a>
-            <a *ngIf="hideLogin" href="/login" class="navitem links" routerLinkActive="active" ariaCurrentWhenActive="page">
+        </div>
+        <div [ngSwitch]="hideLogin">
+            <a *ngSwitchCase="false" href="/login" class="navitem links" routerLinkActive="active" ariaCurrentWhenActive="page">
                 Login
             </a>
-            <a *ngIf="hideLogin" id="logout_button" (click)="logout()" class="navitem links" routerLinkActive="active" ariaCurrentWhenActive="page">
+            <a *ngSwitchCase="true" id="logout_button" (click)="logout()" class="navitem links" routerLinkActive="active" ariaCurrentWhenActive="page">
                 Logout
             </a>
         </div>
