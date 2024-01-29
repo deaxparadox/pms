@@ -1,7 +1,8 @@
-"""backend URL Configuration
+"""
+URL configuration for backend project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.1/topics/http/urls/
+    https://docs.djangoproject.com/en/5.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,26 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from . import views
 
+from .views import error_404_view, dashboard_view, root_view
+from pms.views import pms_home_to_redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("app.urls", namespace="app")),
-    path(
-        'api/',
-        include(
-            [
-                path('v1/', include("api.urls", namespace="api")),
-                # include('v2/', include("api.urls", namespace="api"))
-                path(
-                    "",
-                    include("user_auth.urls", namespace="user_auth"),
-                
-                )
-            ]
-        )
-    ),
-    path("chat/", include("chat.urls")),
-    re_path(r'^', views.api_error_view, name="error_404"),
+    path("", root_view, name="root"),
+    path("dashboard/", dashboard_view, name="dashboard"),
+    #
+    path("pms", pms_home_to_redirect), 
+    path("pms/", include("pms.urls", namespace="pms")),
+] + [
+    re_path(r"^", error_404_view, name="error_404")
 ]

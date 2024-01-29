@@ -3,11 +3,12 @@
 import os
 import sys
 
-from web_service.settings import *
+from bserver.config import config
 
 def main():
     """Run administrative tasks."""
-    # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
+    # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings.local')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', config.get("SETTINGS"))
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

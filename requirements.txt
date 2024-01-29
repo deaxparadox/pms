@@ -1,0 +1,9 @@
+Django
+django-cors-headers
+django-taggit
+djangorestframework
+ipython
+psycopg2-binary
+selenium
+django-crispy-forms
+crispy-bootstrap5

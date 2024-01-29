@@ -1,14 +1,17 @@
-from django.shortcuts import render
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from rest_framework import status
+from django.shortcuts import render, redirect
+from django.urls import reverse
 
-@api_view(['GET', 'POST', 'PUT', 'DELETE'])
-def api_error_view(request):
-    return Response({}, status=status.HTTP_404_NOT_FOUND)
-
-def error_404(request):
+def error_404_view(request):
     return render(
-        request, 
+        request,
         "404.html"
     )
+
+def dashboard_view(request):
+    return render(
+        request,
+        "home/index.html"
+    )
+
+def root_view(request):
+    return redirect(reverse("dashboard"))
